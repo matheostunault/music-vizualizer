@@ -1,20 +1,16 @@
 (function(ctx){
 
-	var particules = {
+	var visual_elements = {
 		// propriétés/méthodes
 		config: {
 			debug: true
 		},
 		init: function() {
-			this.webgl.init_three_engine();
-			if(this.config.debug === true){
-				this.webgl.init_debug();
-			}
-			console.log('particules is ready !');
+			console.log('visual_elements is ready !');
 		}
 	}
 
-	var self = particules;
-	ctx.particules = particules;
+	var self = visual_elements;
+	ctx.visual_elements = visual_elements;
 
 })(app);

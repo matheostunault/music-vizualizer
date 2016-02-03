@@ -8,24 +8,30 @@
 
 		start: function(){
 			var w = app.webgl;
+			var a = app.audio;
 			w.renderer.render(w.scene, w.camera)
+			a.analyser.getByteFrequencyData(a.frequencyData);
+			a.audio.start;
 			console.log('====|> musicroad is started <|====');
 		},
 		
 		animate: function(){
 			var w = app.webgl;
+			
 			if(this.config.debug === true){
 				w.stats.begin();
 			}
+
 			app.control.update;
-			w.renderer.render(w.scene, w.camera);
+
 			if(this.config.debug === true){
 				w.stats.end();
 			}
-			requestAnimationFrame(app.animate)
+			requestAnimationFrame(app.animate);
 		},
 		init: function() {
 			this.webgl.init_three_engine();
+			this.audio.init_audio();
 			if(this.config.debug === true){
 				this.webgl.init_debug();
 			}
