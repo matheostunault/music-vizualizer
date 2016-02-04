@@ -10,7 +10,7 @@
 			w.scene = new THREE.Scene();
 
 			w.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-			w.camera.position.set(25,25,150);
+			w.camera.position.set(100,100,150);
 
 			document.body.style.margin = 0;
 			document.body.style.overflow = 'hidden';			
@@ -21,13 +21,13 @@
 
 			// lights
 			
-			var ambient = new THREE.AmbientLight( 0x333333 )
+			var ambient = new THREE.AmbientLight( 0xFFFF00 )
 			w.scene.add( ambient );
 
 			var light = new THREE.PointLight( 0xFFFFFF );
 			light.position.set( 0, 30, 30);
 			w.scene.add( light );
-
+			
 			console.log('Three engine ready !');
 		},
 

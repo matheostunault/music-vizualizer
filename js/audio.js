@@ -14,6 +14,7 @@
   			a.analyser 		= a.audio_ctx.createAnalyser();
 
   			a.audio_src.connect(a.analyser);
+  			a.audio_src.connect(a.audio_ctx.destination);
 
   			a.audio_analyzer();
 
@@ -22,11 +23,10 @@
 		audio_analyzer: function(){
 			var a = this ;
   			a.frequencyData = new Uint8Array(a.analyser.frequencyBinCount);
-  			console.log(a.frequencyData);
 		}
 	}
 
 	var self = audio;
 	ctx.audio = audio;
 
-})(app);
+})(app); 

@@ -9,7 +9,7 @@
 		start: function(){
 			var w = app.webgl;
 			var a = app.audio;
-			w.renderer.render(w.scene, w.camera)
+			var e = app.environment;
 			a.analyser.getByteFrequencyData(a.frequencyData);
 			a.audio.start;
 			console.log('====|> musicroad is started <|====');
@@ -17,21 +17,26 @@
 		
 		animate: function(){
 			var w = app.webgl;
-			
-			if(this.config.debug === true){
+			var	a = app.audio;
+			if(app.config.debug === true){
 				w.stats.begin();
 			}
+  			// console.log(a.frequencyData);
 
-			app.control.update;
+			// app.control.update;
 
-			if(this.config.debug === true){
+			if(app.config.debug === true){
 				w.stats.end();
 			}
 			requestAnimationFrame(app.animate);
+			w.renderer.render(w.scene, w.camera);
 		},
 		init: function() {
 			this.webgl.init_three_engine();
+			this.environment.init_environment();
 			this.audio.init_audio();
+			// console.log(this.webgl.scene);
+
 			if(this.config.debug === true){
 				this.webgl.init_debug();
 			}
